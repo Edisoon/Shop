@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Shop.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200310171705_Users")]
+    partial class Users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,19 +159,6 @@ namespace Shop.Web.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Shop.Web.Data.Entities.Country", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Shop.Web.Data.Entities.User", b =>
